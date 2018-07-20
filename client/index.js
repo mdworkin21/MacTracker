@@ -3,10 +3,18 @@ import ReactDom from 'react-dom';
 import {Provider} from 'react-redux'
 import store from './store'
 import style from '../public/style.css'
+import {HashRouter as Router, Route, Switch} from 'react-router-dom'
+import HomePage from './components/HomePage'
+import SearchPage from './components/SearchPage'
 
 ReactDom.render(
     <Provider store={store}>
-      <div>HELLO POOP</div>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/search" component={SearchPage} />
+        </Switch>
+      </Router>
     </Provider>,
       document.getElementById('app')
 )
