@@ -1,8 +1,12 @@
 import React from 'react'
+import Navbar from './Navbar'
 
 const HomePage = (props) => {
   return (
-    <h1>MacTrack2018!</h1>
+    <React.Fragment>
+      <Navbar />
+      <h1>MacTrack2018!</h1>
+    </React.Fragment>
   )
 }
 
