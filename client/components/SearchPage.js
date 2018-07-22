@@ -3,7 +3,7 @@ import Navbar from './Navbar'
 import axios from 'axios'
 import EmptySearch from './EmptySearch';
 import SearchResults from './SearchResults';
-// import regeneratorRuntime from "regenerator-runtime";
+import regeneratorRuntime from "regenerator-runtime";
 import SearchError from './SearchError';
 
 export default class SearchPage extends Component {
