@@ -1,9 +1,7 @@
 const router = require('express').Router();
 
-//API Routes (so far these 2 are just there as dummies, though they'll be used later)
-/*router.use('/users', require('./users'))
-router.use('/nutritionInfo', require('./nutritionInfo'))*/
-
+//API Routes 
+router.use('/search', require('./search'))
 
 //Handles 404 Errors
 router.use((req, res, next) => {

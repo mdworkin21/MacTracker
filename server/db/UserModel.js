@@ -20,4 +20,4 @@ const User = db.define('users', {
   }
 })
 
-module.export = User
+module.export = {User}

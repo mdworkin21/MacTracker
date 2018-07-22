@@ -4,7 +4,8 @@ const EmptySearch = (props) => {
   return (
     <div className="cardContainer">
       <div id="instructions">
-        <p>Search by name, company, or number</p>
+        <p>Want to see what you're getting into before you commit?</p> 
+        <p>Search for a food by name!</p>
       </div>
     </div>
 
