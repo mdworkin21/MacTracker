@@ -3,12 +3,14 @@ import Navbar from './Navbar'
 import axios from 'axios'
 import EmptySearch from './EmptySearch';
 import SearchResults from './SearchResults';
-import regeneratorRuntime from "regenerator-runtime";
+// import regeneratorRuntime from "regenerator-runtime";
+import SearchError from './SearchError';
 
 export default class SearchPage extends Component {
   constructor(){
     super()
     this.state = {
+      name: "",
       calories: "",
       protein: "",
       fat: "",
@@ -28,44 +30,50 @@ export default class SearchPage extends Component {
   async handleSubmit(event){
     event.preventDefault();
 
-    //Axios request to get NDB Number
-    const usdaApiURLSearch = 'https://api.nal.usda.gov/ndb/search/?'
-    const apiKey = 'lFerxXHRcBpCKju21iibKnVDjpRnAwaMR0GyUyaP'
-    const ndbNumRequest = await axios.get(usdaApiURLSearch + `format=json&q=${this.state.search}&sort=n&max=1&offset=0&api_key=${apiKey}`)
-    
+    try{
 
-    //Axios request for nutrition info
-    const usdaApiURLReport = 'https://api.nal.usda.gov/ndb/reports/?'
-    const ndbNum = ndbNumRequest.data.list.item[0].ndbno
-    const nutritionInfoRequest = await axios.get(usdaApiURLReport + `ndbno=${ndbNum}&type=b&format=json&api_key=${apiKey}` )
-
-    //Maps results to state
-    
-    const nutrientArray = nutritionInfoRequest.data.report.food.nutrients.slice(0,5)
-
-    let macros = {}
-    nutrientArray.forEach((nutrient) => {
-      if (nutrient.name === "Energy"){
-         macros.calories = nutrient.value
-      } else if (nutrient.name === "Protein"){
-        macros.protein = nutrient.value
-      } else if (nutrient.name === "Total lipid (fat)"){
-          return macros.fat = nutrient.value
-      } else if (nutrient.name === "Carbohydrate, by difference"){
-          return macros.carbs = nutrient.value
-      }
-    })
-
-    this.setState({
-      calories: macros.calories,
-      protein: macros.protein,
-      fat: macros.fat,
-      carbs: macros.carbs,
-      search: ''
-    })
-
-    console.log('MACROS', this.state)
-
+      //Axios request to get NDB Number
+      const usdaApiURLSearch = 'https://api.nal.usda.gov/ndb/search/?'
+      const apiKey = 'lFerxXHRcBpCKju21iibKnVDjpRnAwaMR0GyUyaP'
+      const ndbNumRequest = await axios.get(usdaApiURLSearch + `format=json&q=${this.state.search}&sort=r&max=1&offset=0&api_key=${apiKey}`)
+      // console.log(ndbNumRequest)
+      
+      
+      //Axios request for nutrition info
+      const usdaApiURLReport = 'https://api.nal.usda.gov/ndb/reports/?'
+      const ndbNum = ndbNumRequest.data.list.item[0].ndbno
+      const itemName = ndbNumRequest.data.list.item[0].name
+      const nutritionInfoRequest = await axios.get(usdaApiURLReport + `ndbno=${ndbNum}&type=b&format=json&api_key=${apiKey}` )
+      console.log(itemName)
+  
+      //Maps results to state
+      const nutrientArray = nutritionInfoRequest.data.report.food.nutrients.slice(0,5)
+  
+      let macros = {}
+      nutrientArray.forEach((nutrient) => {
+        if (nutrient.name === "Energy"){
+           macros.calories = nutrient.value
+        } else if (nutrient.name === "Protein"){
+          macros.protein = nutrient.value
+        } else if (nutrient.name === "Total lipid (fat)"){
+            return macros.fat = nutrient.value
+        } else if (nutrient.name === "Carbohydrate, by difference"){
+            return macros.carbs = nutrient.value
+        }
+      })
+  
+      this.setState({
+        name: itemName,
+        calories: macros.calories,
+        protein: macros.protein,
+        fat: macros.fat,
+        carbs: macros.carbs,
+        search: ''
+      })
+    } catch(err){
+      //need better err handling. Should render SearchErr component
+      console.log(err)
+    }
   }
 
 

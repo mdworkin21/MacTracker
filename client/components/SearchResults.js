@@ -4,12 +4,12 @@ const SearchResults = (props) => {
   console.log(props.state)
   return (
     <div className="cardContainer">
-      <h1 id="foodName">Name</h1>
+      <h1 id="foodName">{props.state.name}</h1>
       <div id="nutrientList">
-        <p>Cal{props.state.calories}</p>
-        <p>Pro{props.state.protein}</p>
-        <p>Fat{props.state.fat}</p>
-        <p>Carb{props.state.carbs}</p>
+        <p>Cal   {props.state.calories}</p>
+        <p>Pro   {props.state.protein}</p>
+        <p>Fat   {props.state.fat}</p>
+        <p>Carb  {props.state.carbs}</p>
       </div>
         <button id="addFood">Add Item</button>
         <p id="serving">Per 100 grams</p>

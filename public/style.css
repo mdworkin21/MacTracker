@@ -154,8 +154,8 @@ body{
   left: 5px;
   font-size: 31.5px;
   padding-top: 0px;
-  text-decoration: unset;
   font-family: sans-serif;
+
 }
 
 #serving{
@@ -182,4 +182,5 @@ body{
 #foodName{
   position: absolute;
   left: 40%;
+  font-size: 24px;
 }
