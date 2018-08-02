@@ -9,12 +9,12 @@ const Navbar = (props) => {
           <Link to="/" id="homeLink" className="link">Home</Link>
           <Link to="/search" id="searchLink" className="link">Search</Link>
           <Link to="/calc" id="searchLink" className="link">Calc</Link>
+          <Link to="/log" id="searchLink" className="link">Log</Link>
     </nav>
     
   )
 }
 
 export default Navbar
-
 
 

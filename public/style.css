@@ -1,6 +1,6 @@
 /* General Page */
 body{
-  background-color: #F2F2F2;
+  background-color: #F5F5F5;
 }
 
 /* NavBar */
@@ -89,7 +89,7 @@ body{
   position: absolute;
   width: 150px;
   height: 150px;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   background-color: white;
   border: 6px solid;
 }
@@ -183,4 +183,17 @@ body{
   position: absolute;
   left: 40%;
   font-size: 24px;
+}
+
+
+/* Log */
+.log{
+  position: relative;
+  top: 100px;
+}
+
+.deleteButton{
+  position: relative;
+  left: 10px;
+  top: 10px;
 }

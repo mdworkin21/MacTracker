@@ -42,16 +42,12 @@ class HomePage extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state.food)
   state.food.forEach((item) => {
     state.cal += Number(item.calories),
     state.carb += Number(item.fat),
     state.protein += Number(item.protein)    
 })
-  return {
-   state
-  }
- 
+  return {state}
 }
 
 
