@@ -6,6 +6,7 @@ import style from '../public/style.css'
 import {HashRouter as Router, Route, Switch} from 'react-router-dom'
 import HomePage from './components/HomePage'
 import SearchPage from './components/SearchPage'
+import MacroCalc from './components/MacroCalc'
 
 ReactDom.render(
     <Provider store={store}>
@@ -13,6 +14,8 @@ ReactDom.render(
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/search" component={SearchPage} />
+          <Route exact path="/calc" component={MacroCalc} />
+
         </Switch>
       </Router>
     </Provider>,

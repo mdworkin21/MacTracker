@@ -2,8 +2,10 @@ import React, {Component} from 'react'
 import axios from 'axios'
 import regeneratorRuntime from "regenerator-runtime";
 import {Redirect} from 'react-router-dom'
+import {connect} from 'react-redux'
+import {addFoodToLog} from '../store'
 
-export default class SearchResults extends Component {
+class SearchResults extends Component {
   constructor(){
     super()
     this.state = {
@@ -15,23 +17,13 @@ export default class SearchResults extends Component {
 
   async handleSubmit(event){
     event.preventDefault()
-
-    //Axios Post Request to DB DailyLog
-    try{
-     const newFood = await axios.post('/api/search', {
-        name: this.props.state.name,
-        calories: this.props.state.calories,
-        protein: this.props.state.protein,
-        carb: this.props.state.carb,
-        fat: this.props.state.fat
-      })
-      this.setState({redirect: true})
-    }catch(err){
-      console.log(err)
+    console.log(this.props.addFood)
+    this.props.addFood(this.props)
+    this.setState({redirect: true})
     }
-  }
 
   render(){
+    console.log('PROPS', this.props)
     if (this.state.redirect){
       return <Redirect to='/' />
     }
@@ -51,3 +43,11 @@ export default class SearchResults extends Component {
     )
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addFood: (food) => dispatch(addFoodToLog(food))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(SearchResults)

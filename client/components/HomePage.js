@@ -1,7 +1,17 @@
-import React from 'react'
+import React, {Component} from 'react'
 import Navbar from './Navbar'
+import { connect } from 'react-redux';
+import {getFoodFromLog} from '../store'
 
-const HomePage = (props) => {
+class HomePage extends Component {
+  componentDidMount(){
+   this.props.displayFood()
+  
+  }
+
+  
+
+  render(){
   return (
     <React.Fragment>
       <Navbar />
@@ -11,24 +21,46 @@ const HomePage = (props) => {
 
       <div id="displayContainer">
         <div className="display" id="cal">
-          <p className="macroText">Calories</p>  
+          <p className="macroText">Calories:<br/>{this.props.state.cal.toFixed(2)}</p>  
         </div>
 
         <div className="display" id="protein">
-          <p className="macroText">Protein</p>
+          <p className="macroText">Protein:<br/>{this.props.state.protein.toFixed(2)}</p>
         </div>
 
         <div className="display" id="carb">
-          <p className="macroText">Carb</p>
+          <p className="macroText">Carb:<br/>{this.props.state.carb.toFixed(2)}</p>
         </div>
 
         <div className="display" id="fat">
-          <p className="macroText">Fat</p>
+          <p className="macroText">Fat:<br/>{this.props.state.fat.toFixed(2)}</p>
         </div>
       </div>
     </React.Fragment>
   )
+ }
 }
 
-export default HomePage
+const mapStateToProps = (state) => {
+  console.log(state.food)
+  state.food.forEach((item) => {
+    state.cal += Number(item.calories),
+    state.carb += Number(item.fat),
+    state.protein += Number(item.protein)    
+})
+  return {
+   state
+  }
+ 
+}
+
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    displayFood: () => dispatch(getFoodFromLog())
+  }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage)
 
