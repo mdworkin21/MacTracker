@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Form, Checkbox, Popup} from 'semantic-ui-react'
 import {feetToCm, inchesToCm, totalHeight, poundsToKg, MifflinForMen,MifflinForWomen, TDEECalc, dailyCalIntake, dailyProtein, dailyCarb, dailyFat} from '../macroCalcEq'
+import DailyGoals from './MacTotals'
 
 const options = [
   { key: 'm', text: 'Male', value: 'male' },
@@ -17,14 +18,17 @@ class MacCalc extends Component {
       inches: '',
       weight: '',
       activity: false,
-      goals: false
+      goals: false,
+      totals: [],
+      alert: false
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleChange = (e, { name, value }) => this.setState({ [name]: value },  () => {
-    console.log(this.state)
+    console.log(this.state
+    )
   })
 
 
@@ -32,7 +36,10 @@ class MacCalc extends Component {
   handleSubmit(event){
     event.preventDefault()
     console.log(this.macCalculations())
-    alert('HELLO')
+    this.setState({
+      totals: this.macCalculations(),
+      alert: true
+    })
   }
 
   macCalculations(){
@@ -64,7 +71,7 @@ class MacCalc extends Component {
 
   render() {
     const { value } = this.state
-    return (
+     return this.state.alert ? <DailyGoals state={this.state}/> : (
       <Form className="macCalc">
         <Form.Group widths='equal'>
           <Form.Input fluid required label='Age' name="age" value={this.state.age} onChange={this.handleChange} placeholder='Age'  />

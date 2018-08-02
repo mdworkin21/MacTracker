@@ -203,3 +203,11 @@ body{
 .macCalC{
   width: 300px;
 }
+
+/* Add Card */
+.addCard{
+  position: relative;
+  top: 300px;
+  left: 500px;
+  
+}
