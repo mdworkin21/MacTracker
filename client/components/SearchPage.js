@@ -5,6 +5,7 @@ import EmptySearch from './EmptySearch';
 import SearchResults from './SearchResults';
 import regeneratorRuntime from "regenerator-runtime";
 import SearchError from './SearchError';
+import { Form, Header, Button} from 'semantic-ui-react'
 
 export default class SearchPage extends Component {
   constructor(){
@@ -69,6 +70,10 @@ export default class SearchPage extends Component {
       })
     } catch(err){
       //need better err handling. Should render SearchErr component
+      alert('Sorry, we don\'t have that')
+      this.setState({
+        search: ""
+      })
       console.log(err)
     }
   }
@@ -79,11 +84,13 @@ export default class SearchPage extends Component {
       return (
         <React.Fragment>
          <Navbar />
-         <h1 className="pageTitle" id="searchPageTitle">Search</h1>
-         <form onSubmit={this.handleSubmit}>
-           <input type="text" name="search" className="searchBox" onChange={this.handleChange} value={this.state.search}></input>
-           <button type="submit" className="submitBtn">submit</button>
-         </form>
+         <Header as='h1' className="pageTitle" id="searchPageTitle">Search</Header>
+         <Form onSubmit={this.handleSubmit}>
+          <Form.Field className="searchBox">
+           <input type="text" name="search" onChange={this.handleChange} value={this.state.search}></input>
+           <Button icon='search' type="submit" className="submitBtn"/>
+           </Form.Field>
+         </Form>
          <EmptySearch />
         </React.Fragment>
       )
@@ -92,12 +99,15 @@ export default class SearchPage extends Component {
     <React.Fragment>
       <Navbar />
       <h1 className="pageTitle" id="searchPageTitle">Search</h1>
-      <form onSubmit={this.handleSubmit}>
-        <input type="text" name="search" className="searchBox" onChange={this.handleChange} value={this.state.search}></input>
-        <button type="submit" className="submitBtn">submit</button>
-      </form>
+      <Form onSubmit={this.handleSubmit}>
+        <Form.Field className="searchBox">
+        <input type="text" name="search"  onChange={this.handleChange} value={this.state.search}/>
+        <Button icon='search' type="submit" className='submitBtn'/>
+        </Form.Field>
+      </Form>
      <SearchResults state={this.state} />
     </React.Fragment>
     )
   }
 }
+

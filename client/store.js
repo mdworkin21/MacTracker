@@ -67,9 +67,17 @@ export const addFoodToLog = food => {
 export const getFoodFromLog = () => {
   return async(dispatch) => {
     const response = await axios.get('/api/dailyLog')
-    console.log(response.data)
+    console.log(response.datas)
     const allFood = response.data
     const action = getFoodLog(allFood)
+    dispatch(action)
+  }
+}
+
+export const deleteItemFromLog = (id) => {
+  return async(dispatch) => {
+    await axios.delete(`/api/dailyLog/${id}`)
+    const action = deleteFood(id)
     dispatch(action)
   }
 }
@@ -83,7 +91,9 @@ function placeholdReducer(state = initialState, action){
     case ADD_FOOD: 
       return {...state, food: action.food}
     case DELETE_FOOD:
-      return {...state, food: action.food}
+      return {...state, food: action.food.filter((item) => {
+        return food.id !== action.id
+      })}
     case UPDATE_FOOD: 
       return {...state, food: action.food}
     default:

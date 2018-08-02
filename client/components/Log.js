@@ -1,17 +1,18 @@
 import React, {Component} from 'react'
-import { Icon, Label, Menu, Table, Button } from 'semantic-ui-react'
+import { Icon, Label, Menu, Table, Button, Form } from 'semantic-ui-react'
 import {connect} from 'react-redux'
-import {getFoodFromLog} from '../store'
+import {getFoodFromLog, deleteItemFromLog} from '../store'
+import Eat from './EmptyLog'
 
 
 class Log extends Component { 
-  componentDidMount(){
+  componentWillMount(){
     this.props.displayFood()
-   
    }
   
   render(){
     return(
+      !this.props.state.food.length ? <Eat /> :
   <React.Fragment>
   <Table celled className="log">
     <Table.Header>
@@ -21,7 +22,8 @@ class Log extends Component {
         <Table.HeaderCell>Fat</Table.HeaderCell>
         <Table.HeaderCell>Carb</Table.HeaderCell>
         <Table.HeaderCell>Cal</Table.HeaderCell>
-        <Table.HeaderCell>Edit</Table.HeaderCell> 
+        <Table.HeaderCell>Amount (oz)</Table.HeaderCell>
+        <Table.HeaderCell>Delete</Table.HeaderCell> 
       </Table.Row>
     </Table.Header>
     <Table.Body>
@@ -29,17 +31,16 @@ class Log extends Component {
         this.props.state.food.map((item) => {
           return (
             <React.Fragment key={item.id}>
-          <Table.Row>
-            <Table.Cell>
-              <Label ribbon>{item.name}</Label>
-            </Table.Cell>
-            <Table.Cell>{item.protein}</Table.Cell>
-            <Table.Cell>{item.fat}</Table.Cell>
-            <Table.Cell>{item.carb}</Table.Cell>
-            <Table.Cell>{item.calories}</Table.Cell>
-            <Button basic color='red' content='X' className='deleteButton'/>
-        </Table.Row>
-          </React.Fragment>
+              <Table.Row>
+                <Table.Cell>{item.name}</Table.Cell>
+                <Table.Cell>{item.protein}</Table.Cell>
+                <Table.Cell>{item.fat}</Table.Cell>
+                <Table.Cell>{item.carb}</Table.Cell>
+                <Table.Cell>{item.calories}</Table.Cell>
+                <Table.Cell><Form.Input placeholder='2 Wide' width={1} /></Table.Cell>
+                <Table.Cell><Button type="button" basic color='red' content='X' className='deleteButton' onClick={(id) => this.props.deleteFood(item.id)}/></Table.Cell>
+              </Table.Row>
+            </React.Fragment>
             )
         })
       }
@@ -72,7 +73,6 @@ class Log extends Component {
 
 
 const mapStateToProps = (state) => {
-  console.log('STATE', state.food)
   return {
     state
   }
@@ -81,7 +81,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    displayFood: () => dispatch(getFoodFromLog())
+    displayFood: () => dispatch(getFoodFromLog()),
+    deleteFood: (id) => dispatch(deleteItemFromLog(id))
   }
 }
 

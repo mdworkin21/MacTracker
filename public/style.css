@@ -57,9 +57,9 @@ body{
 }
 
 .submitBtn{
-  position: absolute;
+  position: relative;
   top: 150px;
-  left: 56.1%;
+  left: 300px;
   width: 50px;
   height: 33px;
   font-size: 12px;
@@ -70,11 +70,6 @@ body{
   padding-left: 3px;
 }
 
-.submitBtn:hover{
-  background-color: crimson;
-  color: white;
-}
-
 /* Display on Home */
 #displayContainer{
   position: absolute;
@@ -82,14 +77,12 @@ body{
   left: 335px;
   width: 650px;
   height: 400px;
-  /* background-color: black; */
 }
 
 .display{
   position: absolute;
   width: 150px;
   height: 150px;
-  /* border-radius: 50%; */
   background-color: white;
   border: 6px solid;
 }
@@ -147,7 +140,6 @@ body{
 }
 
 /* Search Results */
-
 #nutrientList{
   position: absolute;
   top: 40px;
@@ -196,4 +188,18 @@ body{
   position: relative;
   left: 10px;
   top: 10px;
+}
+
+/* EmptyLog */
+#eat{
+  position: relative;
+  top: 300px;
+  left: 300px;
+  width: 400px;
+  height: 200px;
+}
+
+/* MacCalc */
+.macCalC{
+  width: 300px;
 }

@@ -23,7 +23,6 @@ class SearchResults extends Component {
     }
 
   render(){
-    console.log('PROPS', this.props)
     if (this.state.redirect){
       return <Redirect to='/' />
     }

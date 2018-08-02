@@ -22,4 +22,18 @@ router.post('/', async (req, res, next) => {
   }
 })
 
+router.delete('/:foodId', async(req, res, next) => {
+  console.log('hit', req.params.foodId)
+  try{
+    await DailyLog.destroy({
+      where: {
+        id: req.params.foodId
+      }
+    })
+    res.status(202)
+  } catch(err){
+     next(err)
+  }
+})
+
 module.exports = router
