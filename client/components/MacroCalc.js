@@ -26,12 +26,22 @@ class MacCalc extends Component {
           <label>Activity Level</label>
           <Popup 
             trigger={<Form.Radio
+            label='Sedentary'
+            value='sm'
+            checked={value === 'sedentary'}
+            onChange={this.handleChange}
+            />}
+          content="I barely get out of bed. But I walk to get food, pee, and maybe walk the dog"
+          basic />
+
+          <Popup 
+            trigger={<Form.Radio
             label='Lightly Active'
             value='sm'
             checked={value === 'light'}
             onChange={this.handleChange}
             />}
-          content="Moderate exercise with sedentary job."
+          content="Moderate exercise with sedentary job. Any activity that burns: 250-500 calories (male), 200-400 calories(female)"
           basic />
 
           <Popup 
@@ -41,7 +51,7 @@ class MacCalc extends Component {
             checked={value === 'moderate'}
             onChange={this.handleChange}
             />}
-          content="Intense exercise with sedentary job."
+          content="Intense exercise with sedentary job. Any activity that burns: 250-500 calories (male), 200-400 calories (female)"
           basic />
 
           <Popup 
@@ -51,7 +61,7 @@ class MacCalc extends Component {
             checked={value === 'very'}
             onChange={this.handleChange}
             />}
-          content="Moderate exercise and active job."
+          content="Moderate exercise and active job. Any activity that burns: 500-800 calories (male), 400-650 calories (female)"
           basic />
 
           <Popup 
@@ -61,7 +71,7 @@ class MacCalc extends Component {
             checked={value === 'extreme'}
             onChange={this.handleChange}
             />}
-          content="Intense exercise and active job."
+          content="Intense exercise and active job. Any activity that burns: 800+ calories (male), 650+ calories (female)"
           basic />
         </Form.Group>
         
@@ -70,21 +80,21 @@ class MacCalc extends Component {
         <Form.Radio
             label='Lose Weight'
             value='sm'
-            checked={value === 'lost'}
+            checked={value === 'lose'}
             onChange={this.handleChange}
             />
 
         <Form.Radio
             label='Maintain Weight'
             value='sm'
-            checked={value === 'lost'}
+            checked={value === 'maintain'}
             onChange={this.handleChange}
             />
 
         <Form.Radio
             label='Gain Weight'
             value='sm'
-            checked={value === 'lost'}
+            checked={value === 'gain'}
             onChange={this.handleChange}
             />
         </Form.Group>
