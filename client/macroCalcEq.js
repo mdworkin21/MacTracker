@@ -1,6 +1,6 @@
 //Calculates Height
 export const feetToCm = (feet) => {
-   let inches = feet / 12
+   let inches = feet * 12
    return inches * 2.54
 }
 
@@ -37,6 +37,8 @@ export const TDEECalc = (REE, activityLevel) => {
       return REE * 1.55
   } else if (activityLevel === 'very'){
       return REE * 1.725
+  } else if (activityLevel === 'extremely'){
+    return REE * 1.900
   }
 }
 
