@@ -18,8 +18,6 @@ ReactDom.render(
           <Route exact path="/search" component={SearchPage} />
           <Route exact path="/calc" component={MacroCalc} />
           <Route exact path="/log" component={Log} />
-
-
         </Switch>
       </Router>
     </Provider>,

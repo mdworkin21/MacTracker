@@ -72,15 +72,15 @@ body{
 
 /* Display on Home */
 #displayContainer{
-  position: absolute;
+  position: relative;
   top: 200px;
   left: 335px;
-  width: 650px;
-  height: 400px;
+  width: 200px;
+  height: 200px;
 }
 
 .display{
-  position: absolute;
+  position: relative;
   width: 150px;
   height: 150px;
   background-color: white;
@@ -94,20 +94,20 @@ body{
 }
 
 #protein{
-  top: 50px;
-  left: 400px;
+  top: -128px;
+  left: 250px;
   background-color: white;
 }
 
 
 #fat{
-  top: 250px;
-  left: 100px;
+  top: -482px;
+  left: 543px;
   background-color: white;
 }
 
 #carb{
-  top: 250px;
+  top: -305px;
   left: 400px;
   background-color: white;
 }
@@ -200,8 +200,13 @@ body{
 }
 
 /* MacCalc */
-.macCalC{
-  width: 300px;
+.macCalc{
+  position: relative;
+  left: 30vw;
+  top: 10vw;
+  width: 37vw;
+  border-style: groove;
+
 }
 
 /* Add Card */

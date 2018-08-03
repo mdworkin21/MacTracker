@@ -13,39 +13,28 @@ class HomePage extends Component {
   return (
     <React.Fragment>
       <Navbar />
-      <h1 className="pageTitle" id="homePageTitle">MacTrack2018!</h1>
-      <input type="text" className="searchBox"></input>
-      <button type="submit" className="submitBtn">submit</button>
-
-    <Grid columns={1} divided>
-      <Grid.Row stretched>
+      <h1 className="pageTitle" id="homePageTitle">YourMacsAreShowing</h1>
       <div id="displayContainer">
-        <Segment className="display" id="cal">
-          {/* <p className="macroText"> */}
-          Calories:<br/>{this.props.state.cal.toFixed(2)}
-          {/* </p>   */}
-        </Segment>
+      <Grid>
+        <Grid.Row>
+          <Segment className="display" id="cal">
+            Calories:<br/>{this.props.state.cal.toFixed(2)}
+          </Segment>
 
-        <Segment className="display" id="protein">
-          {/* <p className="macroText"> */}
-          Protein:<br/>{this.props.state.protein.toFixed(2)}
-          {/* </p> */}
-        </Segment>
+          <Segment className="display" id="protein">
+            Protein:<br/>{this.props.state.protein.toFixed(2)}
+          </Segment>
 
-        <Segment className="display" id="carb">
-          {/* <p className="macroText"> */}
-          Carb:<br/>{this.props.state.carb.toFixed(2)}
-          {/* </p> */}
-        </Segment>
+          <Segment className="display" id="carb">
+            Carb:<br/>{this.props.state.carb.toFixed(2)}
+          </Segment>
 
-        <Segment className="display" id="fat">
-          {/* <p className="macroText"> */}
-          Fat:<br/>{this.props.state.fat.toFixed(2)}
-          {/* </p> */}
-        </Segment>
+          <Segment className="display" id="fat"> 
+            Fat:<br/>{this.props.state.fat.toFixed(2)}
+          </Segment>
+          </Grid.Row>
+        </Grid>
       </div>
-        </Grid.Row>
-      </Grid>
     </React.Fragment>
   )
  }
