@@ -13,7 +13,7 @@ class HomePage extends Component {
   return (
     <React.Fragment>
       <Navbar />
-      <h1 className="pageTitle" id="homePageTitle">YourMacsAreShowing</h1>
+      <h1 className="pageTitle" id="homePageTitle">Your Macs Are Showing</h1>
       <div id="displayContainer">
       <Grid>
         <Grid.Row>
