@@ -30,7 +30,7 @@ router.delete('/:foodId', async(req, res, next) => {
         id: req.params.foodId
       }
     })
-    res.status(202)
+    res.sendStatus(204)
   } catch(err){
      next(err)
   }

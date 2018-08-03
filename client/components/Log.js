@@ -82,7 +82,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     displayFood: () => dispatch(getFoodFromLog()),
-    deleteFood: (id) => dispatch(deleteItemFromLog(id))
+    deleteFood: (id) => {
+      console.log("CLICKED")
+      dispatch(deleteItemFromLog(id))}
   }
 }
 

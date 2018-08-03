@@ -13,13 +13,9 @@ export default class SearchPage extends Component {
   constructor(){
     super()
     this.state = {
-      name: "",
-      calories: "",
-      protein: "",
-      fat: "",
-      carb: "",
       search: "",
-      nutrientArr: []
+      nutrientArr: [],
+      names: []
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -40,42 +36,44 @@ export default class SearchPage extends Component {
       const usdaApiURLSearch = 'https://api.nal.usda.gov/ndb/search/?'
       const apiKey = 'lFerxXHRcBpCKju21iibKnVDjpRnAwaMR0GyUyaP'
       const ndbNumRequest = await axios.get(usdaApiURLSearch + `format=json&q=${this.state.search}&sort=n&max=10&offset=0&api_key=${apiKey}`)
-      console.log(ndbNumRequest)
       
+      //Item Name
+      const itemName = ndbNumRequest.data.list.item
+      const names = []
+      for (let i = 0; i < itemName.length; i++){
+        let sliceUpTo = itemName[i].name.indexOf(',')
+        names.push(itemName[i].name.slice(0, sliceUpTo))
+      }
+
       // Axios request for nutrition info
-
-      // const usdaApiURLReport = 'https://api.nal.usda.gov/ndb/reports/?'
-      // console.log('NUMNUM', ndbNumRequest.data.list.item)
-      // const ndbNum = ndbNumRequest.data.list.item[0].ndbno
-      // const itemName = ndbNumRequest.data.list.item[0].name
-      // const nutritionInfoRequest = await axios.get(usdaApiURLReport + `ndbno=${ndbNum}&type=b&format=json&api_key=${apiKey}` )
-      // console.log(ndbNum)
-      // //Maps results to state
-      // const nutrientArray = nutritionInfoRequest.data.report.food.nutrients.slice(0,5)
-      // console.log('NUTARR', nutrientArray)
-
       const usdaApiURLReport = 'https://api.nal.usda.gov/ndb/reports/?'
       const ndbArr = ndbNumRequest.data.list.item
       let ndbs = []
+      let allNDBS = []
       ndbArr.forEach((food) => {
-      const ndbNum = food.ndbno
-      const nutritionInfoRequest = axios.get(usdaApiURLReport + `ndbno=${ndbNum}&type=b&format=json&api_key=${apiKey}` )
-      ndbs.push(nutritionInfoRequest)
-      })
-
+          const ndbNum = food.ndbno
+          allNDBS.push(ndbNum)
+          const nutritionInfoRequest = axios.get(usdaApiURLReport + `ndbno=${ndbNum}&type=b&format=json&api_key=${apiKey}` )
+          ndbs.push(nutritionInfoRequest)
+    })
       let arrOfndb = await Promise.all(ndbs)
-
       let nutrientArray = []
       arrOfndb.forEach(nutrients => {
         nutrientArray.push(nutrients.data.report.food.nutrients.slice(0,5))
       })
-       //Gets nutrition infoOut
+
+      //Gets nutrition infoOut
       const result = digDeep(nutrientArray)
-      
+     
+      //Map names and NDB num to nutrition list
+        for (let i = 0; i < names.length; i++){
+          result[i].name = names[i]
+          result[i].ndbNum = allNDBS[i]
+        }
+
       this.setState({
-        calories: 9999,
         search: '',
-        nutrientArr: result
+        nutrientArr: result,
       })
     } catch(err){
       //need better err handling. Should render SearchErr component

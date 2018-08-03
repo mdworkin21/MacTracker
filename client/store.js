@@ -36,10 +36,10 @@ const addFood = (food) => {
   }
 }
 
-const deleteFood = (food) => {
+const deleteFood = (id) => {
   return {
     type: DELETE_FOOD,
-    food
+    id
   }
 }
 
@@ -50,16 +50,16 @@ const updateFood = (food) => {
   }
 }
 
-
 //Thunks
 export const addFoodToLog = food => {
   return async (dispatch) => {
+    console.log('THUNK',food)
     const newFood = await axios.post('/api/dailyLog', {
-      name: food.state.name,
-      calories: food.state.calories,
-      protein: food.state.protein,
-      carb: food.state.carb,
-      fat: food.state.fat
+      name: food[0].name,
+      calories: food[0].calories,
+      protein: food[0].protein,
+      carb: food[0].carb,
+      fat: food[0].fat
     })
   }
 }
@@ -91,8 +91,8 @@ function placeholdReducer(state = initialState, action){
     case ADD_FOOD: 
       return {...state, food: action.food}
     case DELETE_FOOD:
-      return {...state, food: action.food.filter((item) => {
-        return food.id !== action.id
+      return {...state, food: state.food.filter((item) => {
+        return item.id !== action.id
       })}
     case UPDATE_FOOD: 
       return {...state, food: action.food}
