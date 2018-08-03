@@ -73,7 +73,7 @@ body{
 /* Display on Home */
 #displayContainer{
   position: relative;
-  top: 200px;
+  top: 100px;
   left: 335px;
   width: 200px;
   height: 200px;
@@ -122,13 +122,12 @@ body{
 /* Empty SearchCard */
 
 .cardContainer{
-  position: absolute;
+  position: relative;
   top: 250px;
   left: 350px;
   width: 650px;
   height: 350px;
   background-color: white;
-  /* box-shadow: -13px -13px; */
   border: 13px solid;
 }
 
@@ -212,7 +211,7 @@ body{
 /* Add Card */
 .addCard{
   position: relative;
-  top: 300px;
+  top: 100px;
   left: 500px;
   
 }
