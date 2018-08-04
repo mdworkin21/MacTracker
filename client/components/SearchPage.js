@@ -39,12 +39,12 @@ class SearchPage extends Component {
       const apiKey = 'lFerxXHRcBpCKju21iibKnVDjpRnAwaMR0GyUyaP'
       const ndbNumRequest = await axios.get(usdaApiURLSearch + `format=json&q=${this.state.search}&sort=r&max=50&offset=0&lt=g&ds=&fg=${this.props.fgCode}&api_key=${apiKey}`)
       
-      //Item Name
+      //Item Name//need to figure out slice
       const itemName = ndbNumRequest.data.list.item
       const names = []
       for (let i = 0; i < itemName.length; i++){
-        let sliceUpTo = itemName[i].name.indexOf('UPC')
-        names.push(itemName[i].name.slice(0, sliceUpTo))
+        let sliceUpTo = itemName[i].name.indexOf('9')
+        names.push(itemName[i].name)
       }
 
       // Axios request for nutrition info
@@ -94,38 +94,41 @@ class SearchPage extends Component {
         <React.Fragment>
          <Navbar />
          <Header as='h1' className="pageTitle" id="searchPageTitle">Search</Header>
+         <div id="testing">
          <Form onSubmit={this.handleSubmit}>
           <Form.Field className="searchBox">
            <input type="text" name="search" onChange={this.handleChange} value={this.state.search}></input>
            </Form.Field>
-           <Button icon='search' type="submit" className="submitBtn"/>
+           <Button onClick={this.handleSubmit} icon='search' type="submit" className="submitBtn"/>
            <DropDownFoodGroups/>
 
          </Form>
+         </div>
          <EmptySearch />
         </React.Fragment>
       )
     } else {
-    return (
-      <React.Fragment>
-      <Navbar />
-      <h1 className="pageTitle" id="searchPageTitle">Search</h1>
-      <Form onSubmit={this.handleSubmit}>
-        <Form.Field className="searchBox">
-        <input type="text" name="search"  onChange={this.handleChange} value={this.state.search}/>
-        <Button icon='search' type="submit" className='submitBtn'/>
-        </Form.Field>
-     <DropDownFoodGroups/>
-      </Form>
-     <SearchResults nutrientArr={this.state.nutrientArr} />
-    </React.Fragment>
-    )
+        return (
+          <React.Fragment>
+          <Navbar />
+          <h1 className="pageTitle" id="searchPageTitle">Search</h1>
+          <Form onSubmit={this.handleSubmit}>
+            <Form.Field >
+            <input type="text" name="search"  onChange={this.handleChange} value={this.state.search}/>
+            <div className='submitBtn'>
+              <Button onClick={this.handleSubmit} icon='search' type="submit" />
+            </div>
+            </Form.Field>
+            <DropDownFoodGroups/>
+          </Form>
+          <SearchResults nutrientArr={this.state.nutrientArr} />
+        </React.Fragment>
+        )
   }
  }
 }
 
 const mapStateToProps = (state) => {
-  console.log('STATE', state)
   return {
     fgCode: state.fgCode 
   }

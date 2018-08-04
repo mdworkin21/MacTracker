@@ -28,7 +28,6 @@ class DropDownFoodGroups extends Component {
   }
 
   handleChange = (e, {value}) => {
-    console.log(value)
     const selectedOption = this.state.options.filter(option => {
       return option.value === value
     })

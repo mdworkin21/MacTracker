@@ -48,26 +48,21 @@ body{
 /* Forms */
 .searchBox{
   position: absolute;
-  top: 150px;
-  left: 31.5%;
+  top: 0px;
+  right: 0;
   width: 400px;
-  height: 30px;
+  height: 3px;
   font-size: 24px;
-  border: 1px solid;
+  border: none;
+}
+#testing{
+  height: 2px;
 }
 
 .submitBtn{
   position: relative;
   top: 150px;
-  left: 300px;
-  width: 50px;
-  height: 33px;
-  font-size: 12px;
-  background-color: #1995AD;
-  border: 1px solid;
-  font-weight: bold;
-  padding-bottom: 7px;
-  padding-left: 3px;
+  left: 60vw;
 }
 
 /* Display on Home */
@@ -123,12 +118,17 @@ body{
 
 .cardContainer{
   position: relative;
-  top: 250px;
-  left: 350px;
-  width: 650px;
-  height: 350px;
-  background-color: white;
-  border: 13px solid;
+  top: 20vw;
+  left: 5vw;
+  display: flex;
+  flex-direction: row;
+  /* width: 25vw;
+  height: 40vw; */
+  
+}
+
+.individualResult{
+ flex-basis:30px 
 }
 
 #instructions{
@@ -171,9 +171,7 @@ body{
 }
 
 #foodName{
-  position: absolute;
-  left: 40%;
-  font-size: 24px;
+  font-weight: bold;
 }
 
 

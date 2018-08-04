@@ -4,6 +4,8 @@ import regeneratorRuntime from "regenerator-runtime";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { addFoodToLog } from "../store";
+import { Card, Icon, Button } from 'semantic-ui-react'
+
 
 class SearchResults extends Component {
   constructor() {
@@ -27,24 +29,26 @@ class SearchResults extends Component {
     if (this.state.redirect) {
       return <Redirect to="/" />;
     }
-    return this.props.nutrientArr.map(items => {
-      return (
-        <div className="cardContainer" key={items.ndbNum}>
-          <h1 id="foodName">{items.name}</h1>
-          <div id="nutrientList">
-            <p>Cal {items.calories}</p>
-            <p>Pro {items.protein}</p>
-            <p>Fat {items.fat}</p>
-            <p>Carb {items.carb}</p>
-          </div>
-          <button id="addFood" onClick={(id) => this.handleSubmit(items.ndbNum, event)}>
-            Add Item
-          </button>
-          <p id="serving">Per 100 grams</p>
-        </div>
+
+
+    return( 
+    <Card.Group itemsPerRow={3}>
+    {this.props.nutrientArr.map(items => {
+      return (      
+          <Card key={items.ndbNum}>
+            <Card.Content id="foodName">{items.name}</Card.Content>
+            <Card.Content>Cal {items.calories}</Card.Content>
+            <Card.Content>Pro {items.protein}</Card.Content>
+            <Card.Content>Fat {items.fat}</Card.Content>
+            <Card.Content>Carb {items.carb}</Card.Content>
+            <Button onClick={(id) => this.handleSubmit(items.ndbNum, event)}>Add Food</Button>
+            <p id="serving">Per 100 grams</p>
+          </Card>
       );
-    });
-  }
+    })
+    }
+  </Card.Group>
+   )}
 }
 
 
