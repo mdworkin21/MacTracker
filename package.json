@@ -1,7 +1,10 @@
 {
   "name": "mactrack",
   "version": "1.0.0",
-  "description": "",
+  "engines": {
+    "node": "v8.11.1"
+  },
+  "description": "an app to track your daily macronutrient intake",
   "main": "main.js",
   "scripts": {
     "start": "node server",
@@ -14,6 +17,9 @@
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
+    "gulp": "^3.9.1",
+    "hoek": "^5.0.3",
+    "install": "^0.12.1",
     "morgan": "^1.9.0",
     "nodemon": "^1.18.3",
     "nutrition-facts": "^0.1.0",
@@ -31,6 +37,7 @@
     "regenerator-runtime": "^0.12.0",
     "request": "^2.87.0",
     "request-promise": "^4.2.2",
+    "semantic-ui": "^2.3.3",
     "semantic-ui-css": "^2.3.3",
     "semantic-ui-react": "^0.82.1",
     "sequelize": "^4.38.0"
@@ -45,7 +52,6 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "css-loader": "^1.0.0",
-    "semantic-ui": "^2.3.3",
     "style-loader": "^0.21.0",
     "webpack": "^4.16.1",
     "webpack-cli": "^3.1.0"
