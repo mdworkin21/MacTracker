@@ -29,7 +29,6 @@ class SearchPage extends Component {
       [event.target.name]: event.target.value
     })
   }
-
   
   async handleSubmit(event){
     event.preventDefault();
@@ -38,9 +37,7 @@ class SearchPage extends Component {
       //Axios request to get NDB Number
       const usdaApiURLSearch = 'https://api.nal.usda.gov/ndb/search/?'
       const apiKey = 'lFerxXHRcBpCKju21iibKnVDjpRnAwaMR0GyUyaP'
-      console.log(this.props.fgCode)
       const ndbNumRequest = await axios.get(usdaApiURLSearch + `format=json&q=${this.state.search}&sort=r&max=50&offset=0&lt=g&ds=&fg=${this.props.fgCode}&api_key=${apiKey}`)
-      console.log('NMREQ', ndbNumRequest)
       
       //Item Name
       const itemName = ndbNumRequest.data.list.item

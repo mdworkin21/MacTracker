@@ -63,35 +63,46 @@ export const getFgCode = (code) => {
 //Thunks
 export const addFoodToLog = food => {
   return async (dispatch) => {
-    console.log('THUNK',food)
-    const newFood = await axios.post('/api/dailyLog', {
-      name: food[0].name,
-      calories: food[0].calories,
-      protein: food[0].protein,
-      carb: food[0].carb,
-      fat: food[0].fat
-    })
+    try{
+      console.log('THUNK',food)
+      const newFood = await axios.post('/api/dailyLog', {
+        name: food[0].name,
+        calories: food[0].calories,
+        protein: food[0].protein,
+        carb: food[0].carb,
+        fat: food[0].fat
+      })
+    } catch(err){
+       console.log(err)
+    }
   }
 }
 
 export const getFoodFromLog = () => {
   return async(dispatch) => {
-    const response = await axios.get('/api/dailyLog')
-    console.log(response.datas)
-    const allFood = response.data
-    const action = getFoodLog(allFood)
-    dispatch(action)
+    try{
+      const response = await axios.get('/api/dailyLog')
+      console.log(response.datas)
+      const allFood = response.data
+      const action = getFoodLog(allFood)
+      dispatch(action)
+    } catch(err) {
+        console.log(err)
+    }
   }
 }
 
 export const deleteItemFromLog = (id) => {
   return async(dispatch) => {
-    await axios.delete(`/api/dailyLog/${id}`)
-    const action = deleteFood(id)
-    dispatch(action)
+    try{
+      await axios.delete(`/api/dailyLog/${id}`)
+      const action = deleteFood(id)
+      dispatch(action)
+    } catch(err){
+        console.log(err)
+    }
   }
 }
-
 
 //Reducer
 function placeholdReducer(state = initialState, action){
@@ -111,7 +122,6 @@ function placeholdReducer(state = initialState, action){
     default:
       return state
   }
-  
 }
 
 //store
