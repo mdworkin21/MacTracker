@@ -1,8 +1,8 @@
 const router = require('express').Router();
 
 //API Routes 
-// router.use('/search', require('./search'))
 router.use('/dailyLog', require('./dailyLog'))
+router.use('/foodGroups', require('./foodGroups'))
 
 //Handles 404 Errors
 router.use((req, res, next) => {

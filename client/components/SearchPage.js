@@ -7,15 +7,18 @@ import regeneratorRuntime from "regenerator-runtime";
 import SearchError from './SearchError';
 import { Form, Header, Button} from 'semantic-ui-react'
 import digDeep from '../api/usdaApi'
+import DropDownFoodGroups from './FoodGroups';
+import {connect} from 'react-redux'
 
-
-export default class SearchPage extends Component {
+//This file's a mess and needs refactoring
+class SearchPage extends Component {
   constructor(){
     super()
     this.state = {
       search: "",
       nutrientArr: [],
-      names: []
+      names: [],
+      options: []
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -35,13 +38,15 @@ export default class SearchPage extends Component {
       //Axios request to get NDB Number
       const usdaApiURLSearch = 'https://api.nal.usda.gov/ndb/search/?'
       const apiKey = 'lFerxXHRcBpCKju21iibKnVDjpRnAwaMR0GyUyaP'
-      const ndbNumRequest = await axios.get(usdaApiURLSearch + `format=json&q=${this.state.search}&sort=n&max=10&offset=0&api_key=${apiKey}`)
+      console.log(this.props.fgCode)
+      const ndbNumRequest = await axios.get(usdaApiURLSearch + `format=json&q=${this.state.search}&sort=r&max=50&offset=0&lt=g&ds=&fg=${this.props.fgCode}&api_key=${apiKey}`)
+      console.log('NMREQ', ndbNumRequest)
       
       //Item Name
       const itemName = ndbNumRequest.data.list.item
       const names = []
       for (let i = 0; i < itemName.length; i++){
-        let sliceUpTo = itemName[i].name.indexOf(',')
+        let sliceUpTo = itemName[i].name.indexOf('UPC')
         names.push(itemName[i].name.slice(0, sliceUpTo))
       }
 
@@ -95,8 +100,10 @@ export default class SearchPage extends Component {
          <Form onSubmit={this.handleSubmit}>
           <Form.Field className="searchBox">
            <input type="text" name="search" onChange={this.handleChange} value={this.state.search}></input>
-           <Button icon='search' type="submit" className="submitBtn"/>
            </Form.Field>
+           <Button icon='search' type="submit" className="submitBtn"/>
+           <DropDownFoodGroups/>
+
          </Form>
          <EmptySearch />
         </React.Fragment>
@@ -111,6 +118,7 @@ export default class SearchPage extends Component {
         <input type="text" name="search"  onChange={this.handleChange} value={this.state.search}/>
         <Button icon='search' type="submit" className='submitBtn'/>
         </Form.Field>
+     <DropDownFoodGroups/>
       </Form>
      <SearchResults nutrientArr={this.state.nutrientArr} />
     </React.Fragment>
@@ -118,3 +126,12 @@ export default class SearchPage extends Component {
   }
  }
 }
+
+const mapStateToProps = (state) => {
+  console.log('STATE', state)
+  return {
+    fgCode: state.fgCode 
+  }
+}
+
+export default connect(mapStateToProps)(SearchPage)

@@ -7,12 +7,14 @@ import axios from 'axios'
 
 
 //Initial State
+//Probably a good idea to make second store with search stuff
 const initialState = {
   cal: 0,
   carb: 0,
   fat: 0,
   protein: 0,
-  food: []
+  food: [],
+  fgCode: ''
 }
 
 //Constants for Action Types
@@ -20,6 +22,7 @@ const GET_FOOD_LOG = 'GET_FOOD_LOG'
 const ADD_FOOD = 'ADD_FOOD'
 const DELETE_FOOD = 'DELETE_FOOD'
 const UPDATE_FOOD = 'UPDATE_FOOD'
+const GET_FGCODE = 'GET_FGCODE'
 
 //Action Creators
 const getFoodLog = (food) => {
@@ -47,6 +50,13 @@ const updateFood = (food) => {
   return {
     type: UPDATE_FOOD,
     food
+  }
+}
+
+export const getFgCode = (code) => {
+  return {
+    type: GET_FGCODE,
+    code
   }
 }
 
@@ -96,6 +106,8 @@ function placeholdReducer(state = initialState, action){
       })}
     case UPDATE_FOOD: 
       return {...state, food: action.food}
+    case GET_FGCODE:
+      return {... state, fgCode: action.code}
     default:
       return state
   }

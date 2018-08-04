@@ -3,6 +3,7 @@ const Sequelize = require('sequelize')
 const User = require('./UserModel')
 const Profile = require('./ProfileModel')
 const DailyLog = require('./DailyLogModel')
+const FoodGroup = require('./FoodGroups')
 
 //Associations
 //Profile and User
@@ -17,5 +18,6 @@ module.exports = {
   db,
   User,
   Profile,
-  DailyLog
+  DailyLog,
+  FoodGroup
 }

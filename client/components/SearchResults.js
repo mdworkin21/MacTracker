@@ -15,7 +15,6 @@ class SearchResults extends Component {
   }
 
   async handleSubmit(id, event) {
-    console.log('EVENT',event)
     event.preventDefault();
    let addThisFood = this.props.nutrientArr.filter(item => {
       return item.ndbNum === id
@@ -47,6 +46,7 @@ class SearchResults extends Component {
     });
   }
 }
+
 
 const mapDispatchToProps = dispatch => {
   return {
