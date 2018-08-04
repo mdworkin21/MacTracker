@@ -1,16 +1,15 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {Menu} from 'semantic-ui-react'
-
+import SearchPage from './SearchPage'
 
 const Navbar = (props) => {
   return(
-    <nav id="navBar">
+    <Menu inverted>
           <Link to="/" id="homeLink" className="link">Home</Link>
-          <Link to="/search" id="searchLink" className="link">Search</Link>
           <Link to="/calc" id="searchLink" className="link">Calc</Link>
           <Link to="/log" id="searchLink" className="link">Log</Link>
-    </nav>
+    </Menu>
     
   )
 }

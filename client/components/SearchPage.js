@@ -5,7 +5,7 @@ import EmptySearch from './EmptySearch';
 import SearchResults from './SearchResults';
 import regeneratorRuntime from "regenerator-runtime";
 import SearchError from './SearchError';
-import { Form, Header, Button} from 'semantic-ui-react'
+import { Form, Header, Button, Modal} from 'semantic-ui-react'
 import digDeep from '../api/usdaApi'
 import DropDownFoodGroups from './FoodGroups';
 import {connect} from 'react-redux'
@@ -72,7 +72,6 @@ class SearchPage extends Component {
           result[i].name = names[i]
           result[i].ndbNum = allNDBS[i]
         }
-
       this.setState({
         search: '',
         nutrientArr: result,
@@ -81,38 +80,18 @@ class SearchPage extends Component {
       //need better err handling. Should render SearchErr component
       alert('Sorry, we don\'t have that')
       this.setState({
+        err: true,
         search: ""
       })
       console.log(err)
     }
   }
 
-//This isn't dry. Probagbly better way to do this. Maybe Put form in own component
+//This is better than before but still needs work. Probagbly better way to do this. Maybe Put form in own component
   render(){
-    if (!this.state.nutrientArr.length){
-      return (
-        <React.Fragment>
-         <Navbar />
-         <Header as='h1' className="pageTitle" id="searchPageTitle">Search</Header>
-         <div id="testing">
-         <Form onSubmit={this.handleSubmit}>
-          <Form.Field className="searchBox">
-           <input type="text" name="search" onChange={this.handleChange} value={this.state.search}></input>
-           </Form.Field>
-           <Button onClick={this.handleSubmit} icon='search' type="submit" className="submitBtn"/>
-           <DropDownFoodGroups/>
-
-         </Form>
-         </div>
-         <EmptySearch />
-        </React.Fragment>
-      )
-    } else {
         return (
-          <React.Fragment>
-          <Navbar />
-          <h1 className="pageTitle" id="searchPageTitle">Search</h1>
-          <Form onSubmit={this.handleSubmit}>
+          <div className='searchStuff'>
+          <Form onSubmit={this.handleSubmit} className="searchBox">
             <Form.Field >
             <input type="text" name="search"  onChange={this.handleChange} value={this.state.search}/>
             <div className='submitBtn'>
@@ -122,11 +101,10 @@ class SearchPage extends Component {
             <DropDownFoodGroups/>
           </Form>
           <SearchResults nutrientArr={this.state.nutrientArr} />
-        </React.Fragment>
+        </div>
         )
-  }
+    }
  }
-}
 
 const mapStateToProps = (state) => {
   return {

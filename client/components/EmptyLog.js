@@ -6,8 +6,9 @@ const Eat = () => (
   <React.Fragment>
     <Navbar />
   <Message id="eat">
-    <Message.Header>Empty Log</Message.Header>
-    <p>
+    <Message.Header id='emptLogMessage'>Empty Log</Message.Header>
+    <br/>
+    <p id="eatSomething">
       Eat Something!
     </p>
   </Message>

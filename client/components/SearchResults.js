@@ -29,11 +29,11 @@ class SearchResults extends Component {
     if (this.state.redirect) {
       return <Redirect to="/" />;
     }
-
-
+    
     return( 
     <Card.Group itemsPerRow={3}>
-    {this.props.nutrientArr.map(items => {
+    {
+    this.props.nutrientArr.map(items => {
       return (      
           <Card key={items.ndbNum}>
             <Card.Content id="foodName">{items.name}</Card.Content>

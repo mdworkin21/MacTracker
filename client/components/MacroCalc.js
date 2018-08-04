@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Checkbox, Popup} from 'semantic-ui-react'
+import { Form, Checkbox, Popup, Radio} from 'semantic-ui-react'
 import {feetToCm, inchesToCm, totalHeight, poundsToKg, MifflinForMen,MifflinForWomen, TDEECalc, dailyCalIntake, dailyProtein, dailyCarb, dailyFat} from '../macroCalcEq'
 import DailyGoals from './MacTotals'
 import Navbar from './Navbar';
@@ -18,7 +18,7 @@ class MacCalc extends Component {
       feet: '',
       inches: '',
       weight: '',
-      activity: false,
+      activity: '',
       goals: false,
       totals: {},
       alert: false
@@ -72,6 +72,7 @@ class MacCalc extends Component {
 
   render() {
     const { value } = this.state
+
      return this.state.alert ? <DailyGoals state={this.state}/> : (
     <React.Fragment>
       <Navbar />
@@ -87,15 +88,17 @@ class MacCalc extends Component {
         <Form.Group inline required>
           <label required>Activity Level</label>
           <Popup 
-            trigger={<Form.Radio
-            label='Sedentary'
-            value='sedentary'
-            name="activity"
-            checked={value === 'sedentary'}
-            onClick={this.handleChange}
+              trigger={<Form.Field
+              control={Radio}
+              label='Sedentary'
+              value='sedentary'
+              name="activity"
+              checked={value === 'sedentary'}
+              onChange={this.handleChange}
             />}
-          content="I barely get out of bed. But I walk to get food, pee, and maybe walk the dog"
-          basic />
+            content="I barely get out of bed. But I walk to get food, pee, and maybe walk the dog"
+            basic 
+          />
 
           <Popup 
             trigger={<Form.Radio
@@ -124,12 +127,11 @@ class MacCalc extends Component {
             label='Very Active'
             value='very'
             name="activity"
-            checked={value === this.state.activity}
+            checked={this.state.activity.value === this.state.activity}
             onChange={this.handleChange}
             />}
           content="Moderate exercise and active job. Any activity that burns: 500-800 calories (male), 400-650 calories (female)"
           basic />
-
           <Popup 
             trigger={<Form.Radio
             label='Extremely Active'

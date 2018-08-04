@@ -3,6 +3,7 @@ import Navbar from './Navbar'
 import { connect } from 'react-redux';
 import {getFoodFromLog} from '../store'
 import {Grid, Segment} from 'semantic-ui-react'
+import SearchPage from './SearchPage';
 
 class HomePage extends Component {
   componentDidMount(){
@@ -35,6 +36,7 @@ class HomePage extends Component {
           </Grid.Row>
         </Grid>
       </div>
+      <SearchPage  />
     </React.Fragment>
   )
  }

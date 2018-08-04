@@ -3,6 +3,7 @@ import { Icon, Label, Menu, Table, Button, Form } from 'semantic-ui-react'
 import {connect} from 'react-redux'
 import {getFoodFromLog, deleteItemFromLog} from '../store'
 import Eat from './EmptyLog'
+import Navbar from './Navbar';
 
 
 class Log extends Component { 
@@ -14,6 +15,7 @@ class Log extends Component {
     return(
       !this.props.state.food.length ? <Eat /> :
   <React.Fragment>
+    <Navbar />
   <Table celled className="log">
     <Table.Header>
       <Table.Row>

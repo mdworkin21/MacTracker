@@ -26,10 +26,6 @@ body{
   font-family: sans-serif;
 }
 
-.link:hover{
-  font-size: 22px;
-}
-
 /* Headings */
 .pageTitle{
   position: absolute;
@@ -38,7 +34,7 @@ body{
 }
 
 #homePageTitle{
-  left: 37%;
+  left: 32%;
 }
 
 #searchPageTitle{
@@ -46,29 +42,35 @@ body{
 }
 
 /* Forms */
-.searchBox{
-  position: absolute;
-  top: 0px;
-  right: 0;
-  width: 400px;
-  height: 3px;
-  font-size: 24px;
-  border: none;
+.searchStuff{
+  position: relative;
+  top: 50px;
+  right: 0px;
 }
-#testing{
-  height: 2px;
+.searchBox{
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 100px;
+  height: 30px;
+  font-size: 24px;
 }
 
 .submitBtn{
   position: relative;
-  top: 150px;
-  left: 60vw;
+  top: 5px;
+  left: 0vw;
+}
+
+.testing{
+  position: relative;
+  top: 800px;
 }
 
 /* Display on Home */
 #displayContainer{
   position: relative;
-  top: 100px;
+  top: 50px;
   left: 335px;
   width: 200px;
   height: 200px;
@@ -84,25 +86,25 @@ body{
 
 #cal{
   top: 50px;
-  left: 100px;
+  left: 25px;
   background-color: white;
 }
 
 #protein{
   top: -128px;
-  left: 250px;
+  left: 210px;
   background-color: white;
 }
 
 
 #fat{
-  top: -482px;
-  left: 543px;
+  top: -484px;
+  left: 583px;
   background-color: white;
 }
 
 #carb{
-  top: -305px;
+  top: -306px;
   left: 400px;
   background-color: white;
 }
@@ -122,9 +124,6 @@ body{
   left: 5vw;
   display: flex;
   flex-direction: row;
-  /* width: 25vw;
-  height: 40vw; */
-  
 }
 
 .individualResult{
@@ -174,7 +173,6 @@ body{
   font-weight: bold;
 }
 
-
 /* Log */
 .log{
   position: relative;
@@ -190,10 +188,22 @@ body{
 /* EmptyLog */
 #eat{
   position: relative;
-  top: 300px;
+  top: 120px;
   left: 300px;
-  width: 400px;
-  height: 200px;
+  width: 700px;
+  height: 350px;
+  font-size: 28px;
+  padding-left: 15%;
+}
+
+#emptLogMessage{
+  position: relative;
+  left: 50px;
+}
+
+#eatSomething{
+  position: relative;
+  left: 34px;
 }
 
 /* MacCalc */
