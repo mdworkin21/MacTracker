@@ -99,7 +99,9 @@ class SearchPage extends Component {
               <Button onClick={this.handleSubmit} icon='search' type="submit" />
             </div>
             </Form.Field>
+            <div id="dropDown">
             <DropDownFoodGroups/>
+            </div>
           </Form>
         </div>
           <div id="searchResults">
