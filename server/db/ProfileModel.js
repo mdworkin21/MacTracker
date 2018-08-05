@@ -5,27 +5,14 @@ const Sequelize = require('sequelize')
 
 const Profile = db.define('profiles', {
   name: {
-    type: Sequelize.STRING,
-    allowNull: false,
-    validate: {
-      notEmpty: true
-    }
+    type: Sequelize.STRING
   },
   age: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-    validate: {
-      notEmpty: true,
-      min: 0
-    }
+    type: Sequelize.INTEGER
+    
   },
   weight: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-    validate: {
-      notEmpty: true,
-      min: 0
-    }
+    type: Sequelize.INTEGER
   },
   calGoal: {
     type: Sequelize.INTEGER,
