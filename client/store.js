@@ -78,13 +78,17 @@ const setDailyGoals = (dailyGoals) => {
 export const addFoodToLog = food => {
   return async (dispatch) => {
     try{
-      const newFood = await axios.post('/api/dailyLog', {
+      const response = await axios.post('/api/dailyLog', {
         name: food[0].name,
         calories: food[0].calories,
         protein: food[0].protein,
         carb: food[0].carb,
         fat: food[0].fat
       })
+       const addedFood = response.data
+       console.log(addedFood)
+       const action = addFood(addedFood)
+       dispatch(action)
     } catch(err){
        console.log(err)
     }
@@ -135,9 +139,26 @@ function reducer(state = initialState, action){
     case GET_FOOD_LOG:
       return {...state, food: action.food }
     case ADD_FOOD: 
-      return {...state, food: action.food}
+      return ({
+        ...state,
+        cal: state.cal + Number(action.food.calories),
+        protein: state.protein + Number(action.food.protein),
+        carb: state.carb + Number(action.food.carb),
+        fat: state.fat + Number(action.food.fat), 
+        food: action.food
+      })
     case DELETE_FOOD:
-      return {...state, food: state.food.filter((item) => {
+      const deletedFood = state.food.filter((item) => {
+        return item.id === action.id
+      })
+      console.log('DELETED', deletedFood)
+      return {
+        ...state, 
+        cal: state.cal - Number(deletedFood[0].calories),
+        protein: state.protein + Number(deletedFood[0].protein),
+        carb: state.carb + Number(deletedFood[0].carb),
+        fat: state.fat + Number(deletedFood[0].fat), 
+        food: state.food.filter((item) => {
         return item.id !== action.id
       })}
     case UPDATE_FOOD: 

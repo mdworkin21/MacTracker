@@ -29,8 +29,6 @@ class MacCalc extends Component {
 
   handleChange = (e, { name, value }) => this.setState({ [name]: value })
 
-
-
   handleSubmit(event){
     event.preventDefault()
     this.setState({

@@ -43,21 +43,14 @@ class HomePage extends Component {
 }
 
 const mapStateToProps = (state) => {
-  state.food.forEach((item) => {
-    state.cal = Number(item.calories) + state.cal,
-    state.carb += Number(item.fat),
-    state.protein += Number(item.protein)    
-})
   return {state}
 }
-
 
 const mapDispatchToProps = (dispatch) => {
   return {
     displayFood: () => dispatch(getFoodFromLog())
   }
 }
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage)
 

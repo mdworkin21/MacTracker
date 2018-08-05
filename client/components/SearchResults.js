@@ -10,9 +10,6 @@ import { Card, Icon, Button } from 'semantic-ui-react'
 class SearchResults extends Component {
   constructor() {
     super();
-    this.state = {
-      redirect: false
-    };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -25,11 +22,7 @@ class SearchResults extends Component {
     this.setState({ redirect: true });
   }
 
-  render() {
-    if (this.state.redirect) {
-      return <Redirect to="/" />;
-    }
-    
+  render() { 
     return( 
     <Card.Group itemsPerRow={3}>
     {

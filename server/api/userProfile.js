@@ -10,7 +10,6 @@ router.post('/', async (req, res, next) => {
       proteinGoal: Number(req.body.dailyGoals.protein),
       carbGoal: Number(req.body.dailyGoals.carb),
       fatGoal: Number(req.body.dailyGoals.fat)
-
     })
     res.status(201).send(addedGoals)
   } catch(err) {
