@@ -27,16 +27,12 @@ class MacCalc extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleChange = (e, { name, value }) => this.setState({ [name]: value },  () => {
-    console.log(this.state
-    )
-  })
+  handleChange = (e, { name, value }) => this.setState({ [name]: value })
 
 
 
   handleSubmit(event){
     event.preventDefault()
-    console.log(this.macCalculations())
     this.setState({
       totals: this.macCalculations(),
       alert: true
@@ -54,9 +50,7 @@ class MacCalc extends Component {
       REE = MifflinForWomen(this.state.age, height, weight)
     }
 
-
     const TDEE = TDEECalc(REE, this.state.activity)
-
     const calGoal = Math.round(dailyCalIntake(TDEE, this.state.goals))
     const proteinGoal = Math.round(dailyProtein(calGoal))
     const carbGoal = Math.round(dailyCarb(calGoal))

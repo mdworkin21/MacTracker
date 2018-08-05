@@ -3,14 +3,17 @@ import { Card, Icon, Button } from 'semantic-ui-react'
 import {connect} from 'react-redux'
 import {setDailyGoal} from '../store'
 import HomePage from './HomePage'
+import MacroCalc from './MacroCalc'
 
 class DailyGoals extends Component{
   constructor(){
     super()
     this.state = {
-      redirect: false
+      redirect: false,
+      retry: false
     }
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.tryAgain = this.tryAgain.bind(this)
   }
 
   handleSubmit(event){
@@ -26,9 +29,20 @@ class DailyGoals extends Component{
     })
   }
 
+  tryAgain(event){
+    event.preventDefault()
+    this.setState({
+      retry: true
+    })
+  }
+
   render(){
-   return this.state.redirect ? <HomePage /> :
-     (
+   if (this.state.redirect){
+     return <HomePage />
+   } else if (this.state.retry){
+     return <MacroCalc />
+   } else {
+     return (
       <div className="addCard">
         <Card>
           <Card.Content header='Your Daily Goals' />
@@ -39,11 +53,13 @@ class DailyGoals extends Component{
           <Card.Content extra>
             <Icon name='plus' />
             Click to set daily goals
-            <Button onClick={this.handleSubmit}/>
+            <Button onClick={this.handleSubmit}> Set as Daily Goal?</Button>
+            <Button onClick={this.tryAgain}> Nah, Let Me Try Again </Button>
           </Card.Content>
         </Card>
       </div>
     )
+   } 
   }
 }
 
