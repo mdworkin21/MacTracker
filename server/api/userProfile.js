@@ -4,7 +4,6 @@ const Profile = require('../db/ProfileModel')
 //Route not complete
 router.post('/', async (req, res, next) => {
   try{
-    console.log("FROM BACK", req.body)
     const addedGoals = await Profile.create({
       calGoal: Number(req.body.dailyGoals.calories),
       proteinGoal: Number(req.body.dailyGoals.protein),

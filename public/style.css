@@ -56,7 +56,7 @@ body{
 /* Forms */
 .searchStuff{
   position: relative;
-  top: 50px;
+  top: 10px;
   right: 0px;
 }
 .searchBox{
@@ -68,6 +68,10 @@ body{
   font-size: 24px;
 }
 
+#searchResults{
+  position: relative;
+  top: 200px;
+}
 .submitBtn{
   position: relative;
   top: 5px;

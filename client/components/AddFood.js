@@ -31,7 +31,7 @@ class AddFood extends Component {
     event.preventDefault()
     const addThisFood = {
       name: this.state.name,
-      calories: this.state.cal,
+      calories: this.state.calories,
       protein: this.state.protein,
       carb: this.state.carb,
       fat: this.state.fat

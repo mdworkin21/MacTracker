@@ -5,6 +5,7 @@ import {getFoodFromLog, getFoodTotals} from '../store'
 import {Grid, Segment, Image} from 'semantic-ui-react'
 import SearchPage from './SearchPage';
 
+
 class HomePage extends Component {
   componentDidMount(){
    this.props.displayTotals()

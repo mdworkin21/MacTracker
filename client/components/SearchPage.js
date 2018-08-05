@@ -90,6 +90,7 @@ class SearchPage extends Component {
 //This is better than before but still needs work. Probagbly better way to do this. Maybe Put form in own component
   render(){
         return (
+          <React.Fragment>
           <div className='searchStuff'>
           <Form onSubmit={this.handleSubmit} className="searchBox">
             <Form.Field >
@@ -100,8 +101,11 @@ class SearchPage extends Component {
             </Form.Field>
             <DropDownFoodGroups/>
           </Form>
-          <SearchResults nutrientArr={this.state.nutrientArr} />
         </div>
+          <div id="searchResults">
+          <SearchResults nutrientArr={this.state.nutrientArr} />
+          </div>
+        </React.Fragment>
         )
     }
  }

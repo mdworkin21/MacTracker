@@ -4,7 +4,8 @@ import regeneratorRuntime from "regenerator-runtime";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { addFoodToLog } from "../store";
-import { Card, Icon, Button } from 'semantic-ui-react'
+import { Card, Icon, Button, Header } from 'semantic-ui-react'
+
 
 
 class SearchResults extends Component {
@@ -19,15 +20,14 @@ class SearchResults extends Component {
       return item.ndbNum === id
     })
     this.props.addFood(addThisFood);
-    this.setState({ redirect: true });
   }
 
   render() { 
-    return( 
+    return (
     <Card.Group itemsPerRow={3}>
     {
     this.props.nutrientArr.map(items => {
-      return (      
+      return (       
           <Card key={items.ndbNum}>
             <Card.Content id="foodName">{items.name}</Card.Content>
             <Card.Content>Cal {items.calories}</Card.Content>
@@ -43,7 +43,6 @@ class SearchResults extends Component {
   </Card.Group>
    )}
 }
-
 
 const mapDispatchToProps = dispatch => {
   return {
