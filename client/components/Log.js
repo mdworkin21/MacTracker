@@ -4,15 +4,31 @@ import {connect} from 'react-redux'
 import {getFoodFromLog, deleteItemFromLog} from '../store'
 import Eat from './EmptyLog'
 import Navbar from './Navbar';
+import AddFood from './AddFood';
 
 
-class Log extends Component { 
+class Log extends Component {
+  constructor(){
+    super()
+    this.state = {
+      addForm: false
+    }
+    this.handleSubmit = this.handleSubmit.bind(this)
+  } 
   componentWillMount(){
     this.props.displayFood()
    }
   
+
+   handleSubmit(event){
+     event.preventDefault()
+     this.setState({
+       addForm: true
+     })
+   }
+
   render(){
-    return(
+    return this.state.addForm ? <AddFood /> : (
       !this.props.state.food.length ? <Eat /> :
   <React.Fragment>
     <Navbar />
@@ -50,7 +66,7 @@ class Log extends Component {
     <Table.Footer>
     <Table.Row>
         <Table.HeaderCell colSpan='7'> 
-            <Button icon="add" />
+            <Button icon="add" onClick={this.handleSubmit}  />
          </Table.HeaderCell>
     </Table.Row>
     </Table.Footer>

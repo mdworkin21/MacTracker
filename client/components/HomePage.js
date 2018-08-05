@@ -1,13 +1,13 @@
 import React, {Component} from 'react'
 import Navbar from './Navbar'
 import { connect } from 'react-redux';
-import {getFoodFromLog} from '../store'
-import {Grid, Segment} from 'semantic-ui-react'
+import {getFoodFromLog, getFoodTotals} from '../store'
+import {Grid, Segment, Image} from 'semantic-ui-react'
 import SearchPage from './SearchPage';
 
 class HomePage extends Component {
   componentDidMount(){
-   this.props.displayFood()
+   this.props.displayTotals()
   }
 
   render(){
@@ -36,6 +36,7 @@ class HomePage extends Component {
           </Grid.Row>
         </Grid>
       </div>
+      {/* <Image id="pyramid" src="http://www.healthy-diet-healthy-you.com/images/Food_Guide_Pyramid_1992_USDA.jpg" size="medium" /> */}
       <SearchPage  />
     </React.Fragment>
   )
@@ -48,7 +49,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    displayFood: () => dispatch(getFoodFromLog())
+    displayTotals: () => dispatch(getFoodTotals())
   }
 }
 
