@@ -26,6 +26,18 @@ body{
   font-family: sans-serif;
 }
 
+#goals{
+  display: flex;
+  position: relative;
+  left: 30vw;
+  text-decoration: none;
+  color: whitesmoke;
+  margin: 0px 5px;
+  padding-bottom: 0%;
+  font-size: 24px;
+  font-family: sans-serif; 
+}
+
 /* Headings */
 .pageTitle{
   position: absolute;
@@ -117,7 +129,6 @@ body{
 }
 
 /* Empty SearchCard */
-
 .cardContainer{
   position: relative;
   top: 20vw;

@@ -51,9 +51,10 @@ class DailyGoals extends Component{
           <Card.Content description={`Carb: ${this.props.state.totals.carbGoal} grams`} />
           <Card.Content description={`Fat: ${this.props.state.totals.fatGoal} grams`} />
           <Card.Content extra>
-            <Icon name='plus' />
-            Click to set daily goals
+            {/* <Icon name='plus' />
+            Click to set daily goals */}
             <Button onClick={this.handleSubmit}> Set as Daily Goal?</Button>
+            <br/>
             <Button onClick={this.tryAgain}> Nah, Let Me Try Again </Button>
           </Card.Content>
         </Card>
