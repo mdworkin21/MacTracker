@@ -31,7 +31,7 @@ body{
 #goals{
   display: flex;
   position: relative;
-  left: 30vw;
+  left: 32.5vw;
   text-decoration: none;
   color: whitesmoke;
   margin: 0px 5px;
@@ -49,7 +49,8 @@ body{
 }
 
 #homePageTitle{
-  left: 29%;
+  font-family: 'Arial Narrow Bold', sans-serif;
+  left: 30%;
 }
 
 #searchPageTitle{
@@ -59,7 +60,7 @@ body{
 /* Forms */
 .searchStuff{
   position: relative;
-  top: -200px;
+  top: -229px;
   left: 10px;
 }
 .searchBox{
@@ -84,7 +85,7 @@ body{
 .submitBtn{
   position: relative;
   top: -36.5px;
-  left: 13.5vw;
+  left: 14.5vw;
 }
 
 /* Display on Home */
@@ -108,26 +109,34 @@ body{
 #cal{
   top: 50px;
   left: 25px;
-  background-color: white;
+  padding-left: 10%;
+  font-size: 28px;
+  background-color: #fffa7c;
 }
 
 #protein{
   top: -128px;
   left: 210px;
-  background-color: white;
+  padding-left: 10%;
+  font-size: 28px;
+  background-color: #fdd9ba;
 }
 
 
 #fat{
   top: -484px;
   left: 583px;
-  background-color: white;
+  padding-left: 10%;
+  font-size: 28px;
+  background-color: #b3acff;
 }
 
 #carb{
   top: -306px;
   left: 400px;
-  background-color: white;
+  padding-left: 10%;
+  font-size: 28px;
+  background-color: #a7f0ff;
 }
 
 .macroText{
@@ -180,6 +189,10 @@ body{
   padding-top: 0px;
   font-family: sans-serif;
 
+}
+
+#addFoodButton{
+  background-color: seagreen;
 }
 
 #serving{
@@ -271,19 +284,19 @@ body{
   left: 24vw;
   top: 8vw;
   width: 46vw;
-  border-style: groove;
+  border-style: solid;
 }
 
 #bodyTypes{
   position: relative;
-  top: 110px;
-  left: 15%;
-  height: 350px;
+  top: 140px;
+  left: 21%;
+  height: 300px;
 }
 
 #calcTitle{
   top: 100px;
-  left: 26%;
+  left: 32%;
 }
 
 /* Add Card */
@@ -291,6 +304,18 @@ body{
   position: relative;
   top: 100px;
   left: 500px;
+}
+
+#buttonContainer{
+  display: flex
+}
+
+#buttonSetGoals{
+  background-color: #358caa
+}
+
+#bossyPants2{
+  background-color: #ff5252;
 }
 
 /* Add Food */
@@ -307,4 +332,30 @@ body{
   top: 90px;
   left: 36%;
   font-size: 48px;
+}
+
+/* Daily Goals in Nav */
+
+#title{
+  font-weight: bolder;
+}
+
+#calGoal{
+  color: black;
+  background-color: #fffa7c
+}
+
+#proteinGoal{
+  color: black;
+  background-color: #fdd9ba
+}
+
+#carbGoal{
+  color: black;
+  background-color: #a7f0ff
+}
+
+#fatGoal{
+  color: black;
+  background-color: #b3acff
 }

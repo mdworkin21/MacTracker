@@ -68,7 +68,7 @@ class MacCalc extends Component {
 
      return this.state.alert ? <DailyGoals state={this.state}/> : (
     <React.Fragment>
-      <h1 className="pageTitle" id="calcTitle">Calculate Your Macros Below</h1>
+      <h1 className="pageTitle" id="calcTitle">Calculate Your Macros</h1>
       <Navbar />
     <div className="macCalc">
       <Form>

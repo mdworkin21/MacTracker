@@ -36,7 +36,7 @@ class SearchResults extends Component {
             <Card.Content>Fat {items.fat}</Card.Content>
             <Card.Content>Carb {items.carb}</Card.Content>
             {/* <img id='macroImage' src="https://cathe.com/wp-content/uploads/2016/06/500shutterstock_414287107.jpg"/> */}
-            <Button onClick={(id) => this.handleSubmit(items.ndbNum, event)}>Add Food</Button>
+            <Button id="addFoodButton" onClick={(id) => this.handleSubmit(items.ndbNum, event)}>Add Food</Button>
             <p id="serving">Per 100 grams</p>
           </Card>
         );

@@ -53,9 +53,10 @@ class DailyGoals extends Component{
           <Card.Content extra>
             {/* <Icon name='plus' />
             Click to set daily goals */}
-            <Button onClick={this.handleSubmit}> Set as Daily Goal?</Button>
-            <br/>
-            <Button onClick={this.tryAgain}> Nah, Let Me Try Again </Button>
+            <div id="buttonContainer">
+              <Button id="buttonSetGoals" onClick={this.handleSubmit}> Set as Daily Goal?</Button>
+              <Button id="bossyPants2" onClick={this.tryAgain}> Nah, Let Me Try Again </Button>
+            </div>
           </Card.Content>
         </Card>
       </div>

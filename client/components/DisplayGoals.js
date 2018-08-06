@@ -7,7 +7,7 @@ import {connect} from 'react-redux'
 const DisplayGoals = (props) => {
   return (
       <div id="goals">
-       <Menu.Item name="Goals" id="title" className="goals">Daily Goals</Menu.Item>
+       <Menu.Item name="Goals" id="title" className="goals">Goals</Menu.Item>
        <Menu.Item name="Cal" id="calGoal" className="goals">Cal: {props.dailyGoals.calories}</Menu.Item>
        <Menu.Item name="Protein" id="proteinGoal" className="goals">Protein: {props.dailyGoals.protein}</Menu.Item>
        <Menu.Item name="Carb" id="carbGoal" className="goals" >Carb: {props.dailyGoals.carb}</Menu.Item>
