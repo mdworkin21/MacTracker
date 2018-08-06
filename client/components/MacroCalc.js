@@ -71,14 +71,22 @@ class MacCalc extends Component {
     <div className="macCalc">
       <Form>
         <Form.Group widths='equal'>
+        
           <Form.Input fluid required label='Age' name="age" value={this.state.age} onChange={this.handleChange} placeholder='Age'  />
+          
           <Form.Select fluid required label='Gender' options={options} placeholder='Gender' name="gender" value={this.state.gender} onChange={this.handleChange}/>
+
           <Form.Input fluid required label='Height (ft)' placeholder='Feet' name="feet" value={this.state.feet} onChange={this.handleChange}/>
+         
           <Form.Input fluid required label='Height (in)' placeholder='Inches' name="inches" value={this.state.inches} onChange={this.handleChange} />
+
           <Form.Input fluid required label='Weight (pds)' placeholder='Weight (pds)' name="weight" value={this.state.weight} onChange={this.handleChange} />
+
         </Form.Group>
+
         <Form.Group inline required>
           <label required>Activity Level</label>
+          
           <Popup 
               trigger={<Form.Field
               control={Radio}
@@ -122,8 +130,9 @@ class MacCalc extends Component {
             checked={this.state.activity.value === this.state.activity}
             onChange={this.handleChange}
             />}
-          content="Moderate exercise and active job. Any activity that burns: 500-800 calories (male), 400-650 calories (female)"
-          basic />
+            content="Moderate exercise and active job. Any activity that burns: 500-800 calories (male), 400-650 calories (female)"
+            basic />
+
           <Popup 
             trigger={<Form.Radio
             label='Extremely Active'
@@ -132,8 +141,8 @@ class MacCalc extends Component {
             checked={value === this.state.activity}
             onChange={this.handleChange}
             />}
-          content="Intense exercise and active job. Any activity that burns: 800+ calories (male), 650+ calories (female)"
-          basic />
+            content="Intense exercise and active job. Any activity that burns: 800+ calories (male), 650+ calories (female)"
+            basic />
         </Form.Group>
         
         <Form.Group inline>

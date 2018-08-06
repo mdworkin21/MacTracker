@@ -17,13 +17,15 @@ body{
 
 .link{
   position: relative;
+  display: flex;
   top: 15px;
   text-decoration: none;
   color: whitesmoke;
   margin: 0px 5px;
+  margin-bottom: 0%;
   padding-bottom: 0%;
   font-size: 24px;
-  font-family: sans-serif;
+  font-family: serif;
 }
 
 #goals{
@@ -33,9 +35,10 @@ body{
   text-decoration: none;
   color: whitesmoke;
   margin: 0px 5px;
+  margin-bottom: 0%;
   padding-bottom: 0%;
   font-size: 24px;
-  font-family: sans-serif; 
+  font-family: serif; 
 }
 
 /* Headings */
@@ -57,12 +60,12 @@ body{
 .searchStuff{
   position: relative;
   top: -200px;
-  left: 1200px;
+  left: 10px;
 }
 .searchBox{
   position: relative;
   top: 0px;
-  left: 0px;
+  left: -10px;
   width: 200px;
   height: 30px;
   font-size: 24px;
@@ -84,11 +87,6 @@ body{
   left: 13.5vw;
 }
 
-.testing{
-  position: relative;
-  top: 800px;
-}
-
 /* Display on Home */
 #displayContainer{
   position: relative;
@@ -105,6 +103,7 @@ body{
   background-color: white;
   border: 6px solid;
 }
+
 
 #cal{
   top: 50px;
@@ -248,7 +247,6 @@ body{
   top: 10vw;
   width: 37vw;
   border-style: groove;
-
 }
 
 /* Add Card */
@@ -256,5 +254,20 @@ body{
   position: relative;
   top: 100px;
   left: 500px;
-  
+}
+
+/* Add Food */
+#addFoodBox{
+  position: relative;
+  top: 50px;
+  width: 40%;
+  left: 25%;
+  top: 10vw;
+}
+
+.logTitle{
+  position: absolute;
+  top: 90px;
+  left: 36%;
+  font-size: 48px;
 }
