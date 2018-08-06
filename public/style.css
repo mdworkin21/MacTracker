@@ -44,12 +44,12 @@ body{
 /* Headings */
 .pageTitle{
   position: absolute;
-  top: 50px;
+  top: 60px;
   font-size: 40px;
 }
 
 #homePageTitle{
-  left: 32%;
+  left: 29%;
 }
 
 #searchPageTitle{
@@ -91,7 +91,7 @@ body{
 #displayContainer{
   position: relative;
   top: 50px;
-  left: 335px;
+  left: 270px;
   width: 200px;
   height: 200px;
 }
@@ -139,10 +139,10 @@ body{
 
 #pyramid {
   position: relative;
-  top: 10vw;
-  left: 33%;
-  height: 30vw;
-  width: 40vw;
+  top: -5vw;
+  left: 0%;
+  height: 10vw;
+  width: 18vw;
 }
 
 #searchBar{
@@ -214,10 +214,12 @@ body{
 
 #macroImage{
   position: relative;
-  top: 10vw;
-  left: 20vw;
-  height: 100px;
-  width: 100px;
+  top: -8vw;
+  left: 12vw;
+  height: 200px;
+  width: 200px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
 }
 
 /* Log */
@@ -229,7 +231,7 @@ body{
 .deleteButton{
   position: relative;
   left: 10px;
-  top: 10px;
+  top: 5px;
 }
 
 /* EmptyLog */
@@ -253,13 +255,35 @@ body{
   left: 34px;
 }
 
+#addSomeFood{
+  position: relative;
+  left: -5vw;
+  background-color: #358caa;
+}
+
+#bossyPants{
+  background-color: #ff5252;
+}
+
 /* MacCalc */
 .macCalc{
   position: relative;
-  left: 30vw;
-  top: 10vw;
-  width: 39vw;
+  left: 24vw;
+  top: 8vw;
+  width: 46vw;
   border-style: groove;
+}
+
+#bodyTypes{
+  position: relative;
+  top: 110px;
+  left: 15%;
+  height: 350px;
+}
+
+#calcTitle{
+  top: 100px;
+  left: 26%;
 }
 
 /* Add Card */

@@ -16,7 +16,8 @@ class AddFood extends Component {
       protein: '',
       carb: '',
       fat: '',
-      redirect: false
+      redirect: false,
+      addform: false,
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -46,7 +47,7 @@ class AddFood extends Component {
       protein: '',
       carb: '',
       fat: '',
-      redirect: true
+      addform: true
     })
   }
 

@@ -40,7 +40,7 @@ class Log extends Component {
         <Table.HeaderCell>Fat</Table.HeaderCell>
         <Table.HeaderCell>Carb</Table.HeaderCell>
         <Table.HeaderCell>Cal</Table.HeaderCell>
-        <Table.HeaderCell>Amount (oz)</Table.HeaderCell>
+        {/* <Table.HeaderCell>Amount (oz)</Table.HeaderCell> */}
         <Table.HeaderCell>Delete</Table.HeaderCell> 
       </Table.Row>
     </Table.Header>
@@ -55,8 +55,9 @@ class Log extends Component {
                 <Table.Cell>{item.fat}</Table.Cell>
                 <Table.Cell>{item.carb}</Table.Cell>
                 <Table.Cell>{item.calories}</Table.Cell>
-                <Table.Cell><Form.Input placeholder='2 Wide' width={1} /></Table.Cell>
-                <Table.Cell><Button type="button" basic color='red' content='X' className='deleteButton' onClick={(id) => this.props.deleteFood(item.id)}/></Table.Cell>
+                {/* <Table.Cell><Form.Input placeholder='2 Wide' width={1} /></Table.Cell> */}
+                <Table.Cell>
+                  <Button type="button" basic color='red' content='X' className='deleteButton' onClick={(id) => this.props.deleteFood(item.id)}/></Table.Cell>
               </Table.Row>
             </React.Fragment>
             )
@@ -65,7 +66,7 @@ class Log extends Component {
     </Table.Body>
     <Table.Footer>
     <Table.Row>
-        <Table.HeaderCell colSpan='7'> 
+        <Table.HeaderCell colSpan='6'> 
             <Button icon="add" onClick={this.handleSubmit}  />
          </Table.HeaderCell>
     </Table.Row>

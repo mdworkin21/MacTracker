@@ -68,6 +68,7 @@ class MacCalc extends Component {
 
      return this.state.alert ? <DailyGoals state={this.state}/> : (
     <React.Fragment>
+      <h1 className="pageTitle" id="calcTitle">Calculate Your Macros Below</h1>
       <Navbar />
     <div className="macCalc">
       <Form>
@@ -174,6 +175,7 @@ class MacCalc extends Component {
         <Form.Button onClick={this.handleSubmit}>Submit</Form.Button>
       </Form>
     </div>
+    <img id="bodyTypes" src='BodyTypes.jpg' />
   </React.Fragment>
     )
   }

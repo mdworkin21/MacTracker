@@ -37,7 +37,7 @@ class HomePage extends Component {
           </Grid.Row>
         </Grid>
       </div>
-      {/* <Image id="pyramid" src="http://www.healthy-diet-healthy-you.com/images/Food_Guide_Pyramid_1992_USDA.jpg" size="medium" /> */}
+      
       <SearchPage  />
     </React.Fragment>
   )
