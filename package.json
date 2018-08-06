@@ -7,8 +7,8 @@
   "description": "an app to track your daily macronutrient intake",
   "main": "main.js",
   "scripts": {
-    "start": "node server",
-    "start-dev": "webpack -w & nodemon server.js",
+    "start": "node main",
+    "start-dev": "webpack -w & nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
