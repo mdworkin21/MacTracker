@@ -51,37 +51,37 @@ class AddFood extends Component {
   }
 
 
-  render(){
+ render(){
   return (
-    <React.Fragment>
-    <Navbar /> 
-    <h1 className="logTitle">Add Food</h1>
-    <div id="addFoodBox">
-    <Form onSubmit={this.handleSubmit}>
-      <Form.Field>
-        <label >Food</label>
-        <input  placeholder="Food Name" name="name" value={this.state.name} onChange={this.handleChange}/>
-      </Form.Field>
-      <Form.Field>
-        <label>Cal</label>
-        <input type="number"  placeholder="Calories" name="calories" value={this.state.calories} onChange={this.handleChange}/>
-      </Form.Field>
-      <Form.Field>
-        <label>Protein</label>
-        <input type="number"  placeholder="Protein" name="protein" value={this.state.protein} onChange={this.handleChange}/>
-      </Form.Field>
-      <Form.Field>
-        <label>Carb</label>
-        <input type="number"  placeholder="Carbs" name="carb" value={this.state.carb} onChange={this.handleChange}/>
-      </Form.Field>
-      <Form.Field>
-        <label>Fat</label>
-        <input type="number"  placeholder="Fat" name="fat" value={this.state.fat} onChange={this.handleChange}/>
-      </Form.Field>
-      <Button type='submit'>Submit</Button>
-    </Form>
-    </div>
-    </React.Fragment>
+      <React.Fragment>
+        <Navbar /> 
+        <h1 className="logTitle">Add Food</h1>
+        <div id="addFoodBox">
+        <Form onSubmit={this.handleSubmit}>
+          <Form.Field>
+            <label >Food</label>
+            <input  placeholder="Food Name" name="name" value={this.state.name} onChange={this.handleChange}/>
+          </Form.Field>
+          <Form.Field>
+            <label>Cal</label>
+            <input type="number"  placeholder="Calories" name="calories" value={this.state.calories} onChange={this.handleChange}/>
+          </Form.Field>
+          <Form.Field>
+            <label>Protein</label>
+            <input type="number"  placeholder="Protein" name="protein" value={this.state.protein} onChange={this.handleChange}/>
+          </Form.Field>
+          <Form.Field>
+            <label>Carb</label>
+            <input type="number"  placeholder="Carbs" name="carb" value={this.state.carb} onChange={this.handleChange}/>
+          </Form.Field>
+          <Form.Field>
+            <label>Fat</label>
+            <input type="number"  placeholder="Fat" name="fat" value={this.state.fat} onChange={this.handleChange}/>
+          </Form.Field>
+          <Button type='submit'>Submit</Button>
+        </Form>
+        </div>
+      </React.Fragment>
   )
 }
 }

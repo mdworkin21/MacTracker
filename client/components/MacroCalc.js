@@ -27,7 +27,7 @@ class MacCalc extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleChange = (e, { name, value }) => this.setState({ [name]: value })
+  handleChange = (e, { name, value }) => this.setState({ [name]: value})
 
   handleSubmit(event){
     event.preventDefault()
@@ -63,6 +63,7 @@ class MacCalc extends Component {
   }
 
   render() {
+    console.log(this.state.activity)
     const { value } = this.state
 
      return this.state.alert ? <DailyGoals state={this.state}/> : (
@@ -88,12 +89,11 @@ class MacCalc extends Component {
           <label required>Activity Level</label>
           
           <Popup 
-              trigger={<Form.Field
-              control={Radio}
+              trigger={<Form.Radio
               label='Sedentary'
               value='sedentary'
               name="activity"
-              checked={value === 'sedentary'}
+              // checked={value === 'sedentary'}
               onChange={this.handleChange}
             />}
             content="I barely get out of bed. But I walk to get food, pee, and maybe walk the dog"
@@ -105,10 +105,10 @@ class MacCalc extends Component {
             label='Lightly Active'
             value='light'
             name="activity"
-            checked={value === 'light'}
+            // checked={value === 'light'}
             onClick={this.handleChange}
             />}
-          content="Moderate exercise with sedentary job. Any activity that burns: 250-500 calories (male), 200-400 calories(female)"
+          content="Any activity that burns: 250-500 calories (male), 200-400 calories(female)"
           basic />
 
           <Popup 
@@ -116,10 +116,10 @@ class MacCalc extends Component {
             label='Moderately Active'
             value='moderate'
             name="activity"
-            checked={value === this.state.activity}
+            // checked={value === this.state.activity}
             onChange={this.handleChange}
             />}
-          content="Intense exercise with sedentary job. Any activity that burns: 250-500 calories (male), 200-400 calories (female)"
+          content="Any activity that burns: 500-650 calories (male), 350-500 calories (female)"
           basic />
 
           <Popup 
@@ -127,21 +127,21 @@ class MacCalc extends Component {
             label='Very Active'
             value='very'
             name="activity"
-            checked={this.state.activity.value === this.state.activity}
+            // checked={this.state.activity.value === this.state.activity}
             onChange={this.handleChange}
             />}
-            content="Moderate exercise and active job. Any activity that burns: 500-800 calories (male), 400-650 calories (female)"
+            content="Any activity that burns: 650-800 calories (male), 500-650 calories (female)"
             basic />
 
           <Popup 
-            trigger={<Form.Radio
+            trigger={<Radio
             label='Extremely Active'
             value='extremely'
             name="activity"
-            checked={value === this.state.activity}
+            // checked={value === this.state.activity}
             onChange={this.handleChange}
             />}
-            content="Intense exercise and active job. Any activity that burns: 800+ calories (male), 650+ calories (female)"
+            content="Any activity that burns: 800+ calories (male), 650+ calories (female)"
             basic />
         </Form.Group>
         
@@ -151,7 +151,7 @@ class MacCalc extends Component {
             label='Lose'
             value='lose'
             name='goals'
-            checked={value === 'lose'}
+            // checked={value === 'lose'}
             onChange={this.handleChange}
             />
 
@@ -159,7 +159,7 @@ class MacCalc extends Component {
             label='Maintain'
             value='maintain'
             name="goals"
-            checked={value === 'maintain'}
+            // checked={value === 'maintain'}
             onChange={this.handleChange}
             />
 
@@ -167,7 +167,7 @@ class MacCalc extends Component {
             label='Gain'
             value='gain'
             name='goals'
-            checked={value === 'gain'}
+            // checked={value === 'gain'}
             onChange={this.handleChange}
             />
         </Form.Group>
