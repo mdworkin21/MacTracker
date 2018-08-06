@@ -207,6 +207,19 @@ body{
   font-weight: bold;
 }
 
+#resultsGroup{
+  margin-left:  100px;
+  margin-right: 100px;
+}
+
+#macroImage{
+  position: relative;
+  top: 10vw;
+  left: 20vw;
+  height: 100px;
+  width: 100px;
+}
+
 /* Log */
 .log{
   position: relative;

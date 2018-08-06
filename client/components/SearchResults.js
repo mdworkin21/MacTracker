@@ -24,23 +24,26 @@ class SearchResults extends Component {
 
   render() { 
     return (
+    <div id="resultsGroup">
     <Card.Group itemsPerRow={3}>
     {
     this.props.nutrientArr.map(items => {
-      return (       
+      return ( 
           <Card key={items.ndbNum}>
             <Card.Content id="foodName">{items.name}</Card.Content>
             <Card.Content>Cal {items.calories}</Card.Content>
             <Card.Content>Pro {items.protein}</Card.Content>
             <Card.Content>Fat {items.fat}</Card.Content>
             <Card.Content>Carb {items.carb}</Card.Content>
+            <img id='macroImage' src="https://www.ireenesiniakis.com/wp-content/uploads/2016/06/Understanding-Your-Macronutrients.png" />
             <Button onClick={(id) => this.handleSubmit(items.ndbNum, event)}>Add Food</Button>
             <p id="serving">Per 100 grams</p>
           </Card>
-      );
+        );
     })
     }
   </Card.Group>
+  </div>
    )}
 }
 

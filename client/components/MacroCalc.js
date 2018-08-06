@@ -73,15 +73,15 @@ class MacCalc extends Component {
       <Form>
         <Form.Group widths='equal'>
         
-          <Form.Input fluid required label='Age' name="age" value={this.state.age} onChange={this.handleChange} placeholder='Age'  />
+          <Form.Input fluid required label='Age' type="number" min="0" name="age" value={this.state.age} onChange={this.handleChange} placeholder='Age'  />
           
           <Form.Select fluid required label='Gender' options={options} placeholder='Gender' name="gender" value={this.state.gender} onChange={this.handleChange}/>
 
-          <Form.Input fluid required label='Height (ft)' placeholder='Feet' name="feet" value={this.state.feet} onChange={this.handleChange}/>
+          <Form.Input fluid required label='Height (ft)' type="number" min="0" placeholder='Feet' name="feet" value={this.state.feet} onChange={this.handleChange}/>
          
-          <Form.Input fluid required label='Height (in)' placeholder='Inches' name="inches" value={this.state.inches} onChange={this.handleChange} />
+          <Form.Input fluid required label='Height (in)' type="number" min="0" placeholder='Inches' name="inches" value={this.state.inches} onChange={this.handleChange} />
 
-          <Form.Input fluid required label='Weight (pds)' placeholder='Weight (pds)' name="weight" value={this.state.weight} onChange={this.handleChange} />
+          <Form.Input fluid required label='Weight (pds)' placeholder='Weight (pds)' type="number" min="0" name="weight" value={this.state.weight} onChange={this.handleChange} />
 
         </Form.Group>
 
